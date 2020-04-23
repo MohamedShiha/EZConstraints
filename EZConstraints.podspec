@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.ios.deployment_target = '8.0'
   s.swift_version = '5.0'
-  s.ios.source_files = 'EZConstraints/Source/iOS/*.swift'
+  s.ios.source_files = 'Source/iOS/*.swift'
   s.ios.frameworks = 'UIKit'
   # s.public_header_files = 'Pod/Classes/**/*.h'
   
