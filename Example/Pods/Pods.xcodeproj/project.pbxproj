@@ -10,6 +10,17 @@
 		1453A6E40B5293EC3C633ACED97637CF /* Pods-EZConstraints_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EF30009A670C2944F94BCA92489EB9B9 /* Pods-EZConstraints_Example-dummy.m */; };
 		30E015D95F485E05A934AD04446886CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		5323CEC22451FE6F00CA3753 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323CEC12451FE6F00CA3753 /* UIKit.framework */; platformFilter = ios; };
+		5323CECE2452345000CA3753 /* EZInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323CEC32452344F00CA3753 /* EZInsets+Extension.swift */; };
+		5323CECF2452345000CA3753 /* EZConstraints_Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323CEC42452344F00CA3753 /* EZConstraints_Alignment.swift */; };
+		5323CED02452345000CA3753 /* IdentifierBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323CEC52452344F00CA3753 /* IdentifierBuilder.swift */; };
+		5323CED12452345000CA3753 /* UIViewAddressFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323CEC62452345000CA3753 /* UIViewAddressFetching.swift */; };
+		5323CED22452345000CA3753 /* EZConstraints_Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323CEC72452345000CA3753 /* EZConstraints_Layout.swift */; };
+		5323CED32452345000CA3753 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323CEC82452345000CA3753 /* Constraint.swift */; };
+		5323CED42452345000CA3753 /* Abstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323CEC92452345000CA3753 /* Abstraction.swift */; };
+		5323CED52452345000CA3753 /* EZConstraints_Superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323CECA2452345000CA3753 /* EZConstraints_Superview.swift */; };
+		5323CED62452345000CA3753 /* EZConstraints_Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323CECB2452345000CA3753 /* EZConstraints_Sizing.swift */; };
+		5323CED72452345000CA3753 /* FunctionSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323CECC2452345000CA3753 /* FunctionSignature.swift */; };
+		5323CED82452345000CA3753 /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323CECD2452345000CA3753 /* Constrainable.swift */; };
 		558BFAAA37FA5EDF0C6F6D1FFCB1A464 /* Pods-EZConstraints_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 40AAA9962EAA8EB3ECC1EE4516A0EE9F /* Pods-EZConstraints_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4AE2C1352E710A22205049AD1FE1658 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; platformFilter = ios; };
 		B62F404E92BFED9AFD910BD05DC706E9 /* Pods-EZConstraints_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B763C2B7CC6B1738FCF660C71EB9AE7 /* Pods-EZConstraints_Tests-dummy.m */; };
@@ -48,6 +59,17 @@
 		40AAA9962EAA8EB3ECC1EE4516A0EE9F /* Pods-EZConstraints_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EZConstraints_Tests-umbrella.h"; sourceTree = "<group>"; };
 		5248B7A8852EF6CE45448E3C1E8C51B1 /* Pods-EZConstraints_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EZConstraints_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5323CEC12451FE6F00CA3753 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		5323CEC32452344F00CA3753 /* EZInsets+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EZInsets+Extension.swift"; sourceTree = "<group>"; };
+		5323CEC42452344F00CA3753 /* EZConstraints_Alignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZConstraints_Alignment.swift; sourceTree = "<group>"; };
+		5323CEC52452344F00CA3753 /* IdentifierBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifierBuilder.swift; sourceTree = "<group>"; };
+		5323CEC62452345000CA3753 /* UIViewAddressFetching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAddressFetching.swift; sourceTree = "<group>"; };
+		5323CEC72452345000CA3753 /* EZConstraints_Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZConstraints_Layout.swift; sourceTree = "<group>"; };
+		5323CEC82452345000CA3753 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		5323CEC92452345000CA3753 /* Abstraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abstraction.swift; sourceTree = "<group>"; };
+		5323CECA2452345000CA3753 /* EZConstraints_Superview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZConstraints_Superview.swift; sourceTree = "<group>"; };
+		5323CECB2452345000CA3753 /* EZConstraints_Sizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZConstraints_Sizing.swift; sourceTree = "<group>"; };
+		5323CECC2452345000CA3753 /* FunctionSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionSignature.swift; sourceTree = "<group>"; };
+		5323CECD2452345000CA3753 /* Constrainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
 		718CF35CB33148D9EEA6CB009EA8E759 /* EZConstraints.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = EZConstraints.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		72DCA778ED7FAB1B40D59E84935FBCD4 /* Pods-EZConstraints_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EZConstraints_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		777AA6F5108E9EAD4D8F7DE064EC0379 /* Pods-EZConstraints_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EZConstraints_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -122,6 +144,17 @@
 		5323CEC02451FD0F00CA3753 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5323CEC92452345000CA3753 /* Abstraction.swift */,
+				5323CECD2452345000CA3753 /* Constrainable.swift */,
+				5323CEC82452345000CA3753 /* Constraint.swift */,
+				5323CEC42452344F00CA3753 /* EZConstraints_Alignment.swift */,
+				5323CEC72452345000CA3753 /* EZConstraints_Layout.swift */,
+				5323CECB2452345000CA3753 /* EZConstraints_Sizing.swift */,
+				5323CECA2452345000CA3753 /* EZConstraints_Superview.swift */,
+				5323CEC32452344F00CA3753 /* EZInsets+Extension.swift */,
+				5323CECC2452345000CA3753 /* FunctionSignature.swift */,
+				5323CEC52452344F00CA3753 /* IdentifierBuilder.swift */,
+				5323CEC62452345000CA3753 /* UIViewAddressFetching.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -326,6 +359,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					65E49678964FD90EE620F0501D26784C = {
+						LastSwiftMigration = 1140;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -392,7 +430,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5323CED02452345000CA3753 /* IdentifierBuilder.swift in Sources */,
+				5323CED72452345000CA3753 /* FunctionSignature.swift in Sources */,
+				5323CED52452345000CA3753 /* EZConstraints_Superview.swift in Sources */,
+				5323CED82452345000CA3753 /* Constrainable.swift in Sources */,
+				5323CECE2452345000CA3753 /* EZInsets+Extension.swift in Sources */,
+				5323CED32452345000CA3753 /* Constraint.swift in Sources */,
+				5323CED12452345000CA3753 /* UIViewAddressFetching.swift in Sources */,
+				5323CED22452345000CA3753 /* EZConstraints_Layout.swift in Sources */,
+				5323CECF2452345000CA3753 /* EZConstraints_Alignment.swift in Sources */,
+				5323CED42452345000CA3753 /* Abstraction.swift in Sources */,
 				BE1B7A9752647CD3B103F31C126AF7BA /* EZConstraints-dummy.m in Sources */,
+				5323CED62452345000CA3753 /* EZConstraints_Sizing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +546,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2FE470DEDA818DCA9DEF83AECF184CAB /* EZConstraints.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -517,7 +567,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				MODULEMAP_FILE = "Target Support Files/EZConstraints/EZConstraints.modulemap";
 				PRODUCT_MODULE_NAME = EZConstraints;
 				PRODUCT_NAME = EZConstraints;
@@ -526,6 +576,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -576,6 +627,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C32CAB5E4887F78B226005C6AD525F41 /* EZConstraints.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -596,7 +648,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				MODULEMAP_FILE = "Target Support Files/EZConstraints/EZConstraints.modulemap";
 				PRODUCT_MODULE_NAME = EZConstraints;
 				PRODUCT_NAME = EZConstraints;
