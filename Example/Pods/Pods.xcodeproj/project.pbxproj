@@ -159,6 +159,14 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		5323CEDA2452457500CA3753 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5323CEC02451FD0F00CA3753 /* iOS */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		55BF6453FBC23F87E7A82A50A6715B08 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +197,7 @@
 		C3821181201F1BA4F9DF5CC12095C131 /* EZConstraints */ = {
 			isa = PBXGroup;
 			children = (
-				5323CEC02451FD0F00CA3753 /* iOS */,
+				5323CEDA2452457500CA3753 /* Source */,
 				96A1FCEAB9C59EB0DFA8B0958A4D52CE /* Pod */,
 				F7372D5C2501BB5C4D6D45217D3ACA0C /* Support Files */,
 			);
