@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'EZConstraints_Example' do
+  pod 'EZConstraints', :path => '../'
+
+  target 'EZConstraints_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
