@@ -1,0 +1,16 @@
+PODS:
+  - EZConstraints (0.1.0)
+
+DEPENDENCIES:
+  - EZConstraints (from `../`)
+
+EXTERNAL SOURCES:
+  EZConstraints:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  EZConstraints: e2a8ffebbb04a99bde7aede93e223878cc75bbbc
+
+PODFILE CHECKSUM: dbb63fa44339936d35df9f5c798c6973dde9d360
+
+COCOAPODS: 1.9.1

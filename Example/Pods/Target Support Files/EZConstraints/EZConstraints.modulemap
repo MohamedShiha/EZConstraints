@@ -1,0 +1,6 @@
+framework module EZConstraints {
+  umbrella header "EZConstraints-umbrella.h"
+
+  export *
+  module * { export * }
+}

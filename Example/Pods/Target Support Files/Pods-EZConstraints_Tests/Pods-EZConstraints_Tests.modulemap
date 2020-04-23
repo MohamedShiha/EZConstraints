@@ -1,0 +1,6 @@
+framework module Pods_EZConstraints_Tests {
+  umbrella header "Pods-EZConstraints_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
