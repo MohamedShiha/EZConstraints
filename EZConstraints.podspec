@@ -11,9 +11,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Mohamed Shiha' => 'mohamedshiha15@gmail.com' }
   s.source           = { :git => 'https://github.com/MohamedShiha/EZConstraints.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/shiha_eg'
-  spec.platforms = {
-    "ios": "8.0"
-  }
+  s.platform = :ios
   s.ios.deployment_target = '8.0'
   s.swift.version = '5.0'
   s.ios.source_files = 'EZConstraints/Source/**/*.swift'
