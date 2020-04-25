@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  EZConstraints
-//
-//  Created by mohamedshiha15@gmail.com on 04/23/2020.
-//  Copyright (c) 2020 mohamedshiha15@gmail.com. All rights reserved.
-//
 
 import UIKit
 
