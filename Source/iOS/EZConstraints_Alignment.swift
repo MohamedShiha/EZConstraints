@@ -22,56 +22,56 @@
 //    THE SOFTWARE.
 //
 
-extension UIView {
+public extension UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignTop(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func alignTop(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .top, relatedBy: relation, priority: p, toItem: view, attribute: .top, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignLeft(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func alignLeft(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .leading, relatedBy: relation, priority: p, toItem: view, attribute: .leading, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignBottom(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func alignBottom(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
-        return EZConstraint.create(item: self, attribute: .bottom, relatedBy: relation, priority: p, toItem: view, attribute: .bottom, multiplier: m, constant: c, isActive)
+        return EZConstraint.create(item: self, attribute: .bottom, relatedBy: relation, priority: p, toItem: view, attribute: .bottom, multiplier: m, constant: -c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignRight(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func alignRight(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
-        return EZConstraint.create(item: self, attribute: .trailing, relatedBy: relation, priority: p, toItem: view, attribute: .trailing, multiplier: m, constant: c, isActive)
+        return EZConstraint.create(item: self, attribute: .trailing, relatedBy: relation, priority: p, toItem: view, attribute: .trailing, multiplier: m, constant: -c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignCenterHorizontally(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func alignCenterHorizontally(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .centerX, relatedBy: relation, priority: p, toItem: view, attribute: .centerX, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignCenterVertically(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func alignCenterVertically(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .centerY, relatedBy: relation, priority: p, toItem: view, attribute: .centerY, multiplier: m, constant: c, isActive)
     }
 }
 
-extension Array where Element == UIView {
+public extension Array where Element == UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignTop(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+    func alignTop(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
         return layoutViews { (selectedView) -> EZConstraint in
             return selectedView.alignTop(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
@@ -80,7 +80,7 @@ extension Array where Element == UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignLeft(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+    func alignLeft(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
         return layoutViews { (selectedView) -> EZConstraint in
             return selectedView.alignLeft(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
@@ -89,7 +89,7 @@ extension Array where Element == UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignBottom(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+    func alignBottom(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
         return layoutViews { (selectedView) -> EZConstraint in
             return selectedView.alignBottom(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
@@ -98,7 +98,7 @@ extension Array where Element == UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignRight(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+    func alignRight(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
         return layoutViews { (selectedView) -> EZConstraint in
             return selectedView.alignRight(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
@@ -107,7 +107,7 @@ extension Array where Element == UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignHorizontally(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+    func alignHorizontally(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
         return layoutViews { (selectedView) -> EZConstraint in
             return selectedView.alignCenterHorizontally(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
@@ -116,7 +116,7 @@ extension Array where Element == UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func alignCenterVertically(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+    func alignCenterVertically(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
         return layoutViews { (selectedView) -> EZConstraint in
             return selectedView.alignCenterVertically(with: view, priority: p, relation, multiplier: m, constant: c, isActive)

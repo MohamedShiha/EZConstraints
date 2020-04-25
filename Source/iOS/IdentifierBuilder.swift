@@ -38,15 +38,43 @@ extension LayoutRelation {
     }
 }
 
-extension EZConstraint {
+public extension EZConstraint {
     
     func buildId(_ funcName: String) -> String {
         
         let address1 = (firstItem as? UIView)?.debugAddress() ?? ""
         let address2 = (secondItem as? UIView)?.debugAddress() ?? ""
-        let mult = multiplier == 1 ? "" : "\(multiplier)"
-        let const = constant == 0 ? "" : "\(constant)"
         
-        return address1 + funcName + relation.name() + address2 + "*\(mult)" + "+ \(const)pt"
+        var mult = ""
+        if (secondItem as? UIView) != nil {
+            if multiplier == 1.0 {
+                mult = ""
+            } else {
+                mult = " * \(multiplier)"
+            }
+        } else {
+            if multiplier == 1.0 {
+                mult = ""
+            } else {
+                mult = "\(multiplier) *"
+            }
+        }
+        
+        var const = ""
+        if constant == 0 {
+            const = ""
+        } else {
+            if constant > 0 {
+                if (secondItem as? UIView) == nil {
+                    const = "\(constant)"
+                } else {
+                    const = "+ \(constant)"
+                }
+            } else {
+                const = "- \(fabs(constant))"
+            }
+        }
+        
+        return " id : \(address1).\(funcName) \(relation.name()) \(address2)\(mult) \(const)pt"
     }
 }

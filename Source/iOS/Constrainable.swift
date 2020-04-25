@@ -22,14 +22,21 @@
 //    THE SOFTWARE.
 //
 
-protocol Constrainable {
+public protocol Constrainable {
     func prepareForAutoLayout()
 }
 
 extension UIView: Constrainable {
-    func prepareForAutoLayout() {
+    
+    public func prepareForAutoLayout() {
         if translatesAutoresizingMaskIntoConstraints {
             translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
+    
+    public func addSubViews(_ views: [UIView]) {
+        views.forEach { (view) in
+            addSubview(view)
         }
     }
 }

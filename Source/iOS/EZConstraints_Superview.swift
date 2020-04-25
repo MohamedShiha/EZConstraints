@@ -22,109 +22,146 @@
 //    THE SOFTWARE.
 //
 
-extension UIView {
+public extension UIView {
+    
+//    @available(iOS 8.0, *)
+//    func layoutInSuperView(including includedEdges: [LayoutEdge], insets: EZInsets) {
+//
+//        if includedEdges.contains(.top) {
+//            layoutTopInSuperView(constant: insets.top)
+//        }
+//
+//        if includedEdges.contains(.left) {
+//            layoutLeftInSuperView(constant: insets.left)
+//        }
+//
+//        if includedEdges.contains(.bottom) {
+//            layoutBottomInSuperView(constant: insets.bottom)
+//        }
+//
+//        if includedEdges.contains(.right) {
+//            layoutRightInSuperView(constant: insets.right)
+//        }
+//    }
     
     @available(iOS 8.0, *)
-    func layoutInSuperView(excluding excludedEdges: [LayoutEdge], insets: EZInsets) {
+    func edgesToSuperView(including includedEdges: [LayoutEdge], insets: EZInsets) {
         
-        if !excludedEdges.contains(.top) {
+        if includedEdges.contains(.top) {
             layoutTopInSuperView(constant: insets.top)
         }
         
-        if !excludedEdges.contains(.left) {
+        if includedEdges.contains(.left) {
             layoutLeftInSuperView(constant: insets.left)
         }
         
-        if !excludedEdges.contains(.bottom) {
+        if includedEdges.contains(.bottom) {
             layoutBottomInSuperView(constant: insets.bottom)
         }
         
-        if !excludedEdges.contains(.right) {
+        if includedEdges.contains(.right) {
             layoutRightInSuperView(constant: insets.right)
         }
     }
     
-    @available(iOS 8.0, *)
-    func edgesToSuperView(insets: UIEdgeInsets = .zero) {
-        prepareForAutoLayout()
-        layoutTopInSuperView(constant: insets.top)
-        layoutBottomInSuperView(constant: insets.bottom)
-        layoutRightInSuperView(constant: insets.right)
-        layoutLeftInSuperView(constant: insets.left)
+    @available(iOS 11.0, *)
+    func edgesToSuperviewSafeArea(including includedEdges: [LayoutEdge], insets: EZInsets) {
+
+        if includedEdges.contains(.top) {
+            layoutTopToSafeArea(constant: insets.top)
+        }
+        
+        if includedEdges.contains(.left) {
+            layoutLeftToSafeArea(constant: insets.left)
+        }
+        
+        if includedEdges.contains(.bottom) {
+            layoutBottomToSafeArea(constant: insets.bottom)
+        }
+        
+        if includedEdges.contains(.right) {
+            layoutRightToSafeArea(constant: insets.right)
+        }
     }
     
     @available(iOS 11.0, *)
-    func edgesToSuperviewSafeArea(excluding excludedEdges: [LayoutEdge], insets: EZInsets) {
-        
-        let safeInsets = getSuperview().safeAreaInsets
-        
-        if !excludedEdges.contains(.top) {
-            layoutTopInSuperView(constant: safeInsets.top + insets.top)
-        }
-        
-        if !excludedEdges.contains(.left) {
-            layoutLeftInSuperView(constant: safeInsets.left + insets.left)
-        }
-        
-        if !excludedEdges.contains(.bottom) {
-            layoutBottomInSuperView(constant: safeInsets.bottom + insets.bottom)
-        }
-        
-        if !excludedEdges.contains(.right) {
-            layoutRightInSuperView(constant: safeInsets.right + insets.right)
-        }
+    @discardableResult
+    func layoutTopToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+        let insets = getSuperview().safeAreaInsets
+        return layoutTopInSuperView(priority: p, relation, multiplier: m, constant: c + insets.top, isActive)
+    }
+    
+    @available(iOS 11.0, *)
+    @discardableResult
+    func layoutLeftToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+        let insets = getSuperview().safeAreaInsets
+        return layoutTopInSuperView(priority: p, relation, multiplier: m, constant: c + insets.left, isActive)
+    }
+    
+    @available(iOS 11.0, *)
+    @discardableResult
+    func layoutBottomToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+        let insets = getSuperview().safeAreaInsets
+        return layoutTopInSuperView(priority: p, relation, multiplier: m, constant: -c - insets.bottom, isActive)
+    }
+    
+    @available(iOS 11.0, *)
+    @discardableResult
+    func layoutRightToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+        let insets = getSuperview().safeAreaInsets
+        return layoutTopInSuperView(priority: p, relation, multiplier: m, constant: -c - insets.right, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutTopInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func layoutTopInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .top, relatedBy: relation, priority: p, toItem: getSuperview(), attribute: .top, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutLeftInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func layoutLeftInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .leading, relatedBy: relation, priority: p, toItem: getSuperview(), attribute: .leading, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutBottomInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func layoutBottomInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .bottom, relatedBy: relation, priority: p, toItem: getSuperview(), attribute: .bottom, multiplier: m, constant: -c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutRightInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+     func layoutRightInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .trailing, relatedBy: relation, priority: p, toItem: getSuperview(), attribute: .trailing, multiplier: m, constant: -c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func centerXInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func centerHorizontally(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .centerX, relatedBy: relation, priority: p, toItem: getSuperview(), attribute: .centerX, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func centerYInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func centerVertically(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .centerY, relatedBy: relation, priority: p, toItem: getSuperview(), attribute: .centerY, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
-    func centerOriginInSuperView(translatedBy point: CGPoint = .zero) {
+    func centerOrigin(translatedBy point: CGPoint = .zero) {
         let superview = getSuperview()
         EZConstraint.create(item: self, attribute: .centerX, relatedBy: .equal, priority: .required, toItem: superview, attribute: .centerX, multiplier: 1, constant: point.x, true)
         EZConstraint.create(item: self, attribute: .centerY, relatedBy: .equal, priority: .required, toItem: superview, attribute: .centerY, multiplier: 1, constant: point.x, true)
     }
     
-    private func getSuperview() -> UIView {
+     func getSuperview() -> UIView {
         guard let superview = superview else {
             invalidSuperviewException(viewDebugInfo: debugDescription)
         }
@@ -136,60 +173,92 @@ fileprivate func invalidSuperviewException(viewDebugInfo: String, _ isActive: Bo
     fatalError("Unable to activate constraint(s) because \(viewDebugInfo) has no superview in the view hierarchy.")
 }
 
-extension Array where Element == UIView {
+public extension Array where Element == UIView {
+    
+//    @available(iOS 8.0, *)
+//    func layoutInSuperView(including includedEdges: [LayoutEdge], insets: EZInsets) {
+//        forEach { (view) in
+//            view.layoutInSuperView(including: includedEdges, insets: insets)
+//        }
+//    }
     
     @available(iOS 8.0, *)
-    func layoutInSuperView(excluding excludedEdges: [LayoutEdge], insets: EZInsets) {
+    func edgesToSuperView(including includedEdges: [LayoutEdge], insets: EZInsets) {
         forEach { (view) in
-            view.layoutInSuperView(excluding: excludedEdges, insets: insets)
-        }
-    }
-    
-    @available(iOS 8.0, *)
-    func edgesToSuperView(insets: UIEdgeInsets = .zero) {
-        forEach { (view) in
-            view.edgesToSuperView(insets: insets)
+            view.edgesToSuperView(including: includedEdges, insets: insets)
         }
     }
     
     @available(iOS 11.0, *)
-    func edgesToSuperviewSafeArea(excluding excludedEdges: [LayoutEdge], insets: EZInsets) {
+    func edgesToSuperviewSafeArea(including includedEdges: [LayoutEdge], insets: EZInsets) {
         forEach { (view) in
-            view.edgesToSuperviewSafeArea(excluding: excludedEdges, insets: insets)
+            view.edgesToSuperviewSafeArea(including: includedEdges, insets: insets)
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    @discardableResult
+    func layoutTopToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+        return layoutViews { (view) -> EZConstraint in
+            return view.layoutTopToSafeArea(priority: p, relation, multiplier: m, constant: c, isActive)
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    @discardableResult
+    func layoutLeftToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+        return layoutViews { (view) -> EZConstraint in
+            return view.layoutLeftToSafeArea(priority: p, relation, multiplier: m, constant: c, isActive)
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    @discardableResult
+    func layoutBottomToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+        return layoutViews { (view) -> EZConstraint in
+            return view.layoutBottomToSafeArea(priority: p, relation, multiplier: m, constant: c, isActive)
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    @discardableResult
+    func layoutRightToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+        return layoutViews { (view) -> EZConstraint in
+            return view.layoutRightToSafeArea(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutTopInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
-        
+    func layoutTopInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+
         return layoutViews { (view) -> EZConstraint in
             return view.layoutTopInSuperView(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
-    
+
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutLeftInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
-        
+     func layoutLeftInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+
         return layoutViews { (view) -> EZConstraint in
             return view.layoutLeftInSuperView(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
-    
+
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutBottomInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
-        
+    func layoutBottomInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+
         return layoutViews { (view) -> EZConstraint in
             return view.layoutBottomInSuperView(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
-    
+
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutRightInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
-        
+    func layoutRightInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+
         return layoutViews { (view) -> EZConstraint in
             return view.layoutRightInSuperView(priority: p, relation, multiplier: m, constant: c, isActive)
         }
@@ -197,26 +266,26 @@ extension Array where Element == UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func centerXInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+    func centerHorizontally(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
         
         return layoutViews { (view) -> EZConstraint in
-            return view.centerXInSuperView(priority: p, relation, multiplier: m, constant: c, isActive)
+            return view.centerHorizontally(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func centerYInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+    func centerVertically(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
         
         return layoutViews { (view) -> EZConstraint in
-            return view.centerYInSuperView(priority: p, relation, multiplier: m, constant: c, isActive)
+            return view.centerVertically(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
     
     @available(iOS 8.0, *)
-    func centerOriginInSuperView(translatedBy point: CGPoint = .zero) {
+    func centerOrigin(translatedBy point: CGPoint = .zero) {
         forEach { (view) in
-            view.centerOriginInSuperView(translatedBy: point)
+            view.centerOrigin(translatedBy: point)
         }
     }
 }

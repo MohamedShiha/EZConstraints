@@ -22,7 +22,7 @@
 //    THE SOFTWARE.
 //
 
-extension UIView {
+public extension UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
@@ -34,8 +34,8 @@ extension UIView {
     @available(iOS 8.0, *)
     func squareSizeWith(sideLengthOf l: CGFloat) {
         prepareForAutoLayout()
-        EZConstraint.create(item: self, attribute: .width, relatedBy: .equal, priority: .required, toItem: nil, attribute: .width, multiplier: 1, constant: l, true)
-        EZConstraint.create(item: self, attribute: .height, relatedBy: .equal, priority: .required, toItem: self, attribute: .width, multiplier: 1, constant: l, true)
+        widthAnchor(.equal, constant: l)
+        heightAnchor(.equal, constant: l)
     }
     
     @available(iOS 8.0, *)
@@ -43,6 +43,16 @@ extension UIView {
         prepareForAutoLayout()
         EZConstraint.create(item: self, attribute: .width, relatedBy: .equal, priority: .required, toItem: nil, attribute: .width, multiplier: 1, constant: size.width, true)
         EZConstraint.create(item: self, attribute: .height, relatedBy: .equal, priority: .required, toItem: nil, attribute: .height, multiplier: 1, constant: size.height, true)
+    }
+    
+    @available(iOS 8.0, *)
+    @discardableResult
+    func sizeAnchor(with view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+        prepareForAutoLayout()
+        return [
+            widthAnchor(with: view, priority: p, relation, multiplier: m, constant: c, isActive),
+            heightAnchor(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
+        ]
     }
     
     @available(iOS 8.0, *)
@@ -60,6 +70,7 @@ extension UIView {
     }
     
     @available(iOS 8.0, *)
+    @discardableResult
     func heightAnchor(with view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .height, relatedBy: relation, priority: p, toItem: view, attribute: .height, multiplier: m, constant: c, isActive)
@@ -73,7 +84,7 @@ extension UIView {
     }
 }
 
-extension Array where Element == UIView {
+public extension Array where Element == UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
@@ -117,6 +128,7 @@ extension Array where Element == UIView {
     }
     
     @available(iOS 8.0, *)
+    @discardableResult
     func heightAnchor(with view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
         
         return layoutViews { (selectedView) -> EZConstraint in

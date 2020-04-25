@@ -53,13 +53,13 @@ extension EZConstraint: Switchable {
 
 extension Array: Switchable where Element == EZConstraint {
     
-    func activate() {
+    public func activate() {
         forEach { (constraint) in
             constraint.activate()
         }
     }
     
-    func deactivate() {
+    public func deactivate() {
         forEach { (constraint) in
             constraint.deactivate()
         }
