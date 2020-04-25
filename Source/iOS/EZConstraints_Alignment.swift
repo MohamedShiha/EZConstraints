@@ -73,7 +73,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func alignTop(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
+        return layViews { (selectedView) -> EZConstraint in
             return selectedView.alignTop(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -82,7 +82,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func alignLeft(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
+        return layViews { (selectedView) -> EZConstraint in
             return selectedView.alignLeft(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -91,7 +91,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func alignBottom(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
+        return layViews { (selectedView) -> EZConstraint in
             return selectedView.alignBottom(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -100,7 +100,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func alignRight(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
+        return layViews { (selectedView) -> EZConstraint in
             return selectedView.alignRight(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -109,7 +109,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func alignHorizontally(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
+        return layViews { (selectedView) -> EZConstraint in
             return selectedView.alignCenterHorizontally(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -118,7 +118,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func alignCenterVertically(with view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
+        return layViews { (selectedView) -> EZConstraint in
             return selectedView.alignCenterVertically(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }

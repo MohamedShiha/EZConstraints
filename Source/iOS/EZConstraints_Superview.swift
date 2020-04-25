@@ -199,7 +199,7 @@ public extension Array where Element == UIView {
     @available(iOS 11.0, *)
     @discardableResult
     func layoutTopToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
-        return layoutViews { (view) -> EZConstraint in
+        return layViews { (view) -> EZConstraint in
             return view.layoutTopToSafeArea(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -207,7 +207,7 @@ public extension Array where Element == UIView {
     @available(iOS 11.0, *)
     @discardableResult
     func layoutLeftToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
-        return layoutViews { (view) -> EZConstraint in
+        return layViews { (view) -> EZConstraint in
             return view.layoutLeftToSafeArea(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -215,7 +215,7 @@ public extension Array where Element == UIView {
     @available(iOS 11.0, *)
     @discardableResult
     func layoutBottomToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
-        return layoutViews { (view) -> EZConstraint in
+        return layViews { (view) -> EZConstraint in
             return view.layoutBottomToSafeArea(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -223,7 +223,7 @@ public extension Array where Element == UIView {
     @available(iOS 11.0, *)
     @discardableResult
     func layoutRightToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
-        return layoutViews { (view) -> EZConstraint in
+        return layViews { (view) -> EZConstraint in
             return view.layoutRightToSafeArea(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -232,7 +232,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func layoutTopInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
 
-        return layoutViews { (view) -> EZConstraint in
+        return layViews { (view) -> EZConstraint in
             return view.layoutTopInSuperView(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -241,7 +241,7 @@ public extension Array where Element == UIView {
     @discardableResult
      func layoutLeftInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
 
-        return layoutViews { (view) -> EZConstraint in
+        return layViews { (view) -> EZConstraint in
             return view.layoutLeftInSuperView(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -250,7 +250,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func layoutBottomInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
 
-        return layoutViews { (view) -> EZConstraint in
+        return layViews { (view) -> EZConstraint in
             return view.layoutBottomInSuperView(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -259,7 +259,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func layoutRightInSuperView(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
 
-        return layoutViews { (view) -> EZConstraint in
+        return layViews { (view) -> EZConstraint in
             return view.layoutRightInSuperView(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -268,7 +268,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func centerHorizontally(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (view) -> EZConstraint in
+        return layViews { (view) -> EZConstraint in
             return view.centerHorizontally(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -277,7 +277,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func centerVertically(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (view) -> EZConstraint in
+        return layViews { (view) -> EZConstraint in
             return view.centerVertically(priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }

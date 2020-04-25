@@ -90,7 +90,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func widthToHeightRatio(to view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat, constant c: CGFloat = 0, isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
+        return layViews { (selectedView) -> EZConstraint in
             return selectedView.widthToHeightRatio(priority: p, relation, multiplier: m, constant: c, isActive: isActive)
         }
     }
@@ -113,7 +113,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func widthAnchor(with view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
+        return layViews { (selectedView) -> EZConstraint in
             return selectedView.widthAnchor(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -122,7 +122,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func widthAnchor(_ relation: LayoutRelation, constant c: CGFloat, priority p: LayoutPriority = .required, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
+        return layViews { (selectedView) -> EZConstraint in
             return selectedView.widthAnchor(relation, constant: c, priority: p, isActive)
         }
     }
@@ -131,7 +131,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func heightAnchor(with view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
+        return layViews { (selectedView) -> EZConstraint in
             return selectedView.heightAnchor(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
@@ -140,7 +140,7 @@ public extension Array where Element == UIView {
     @discardableResult
     func heightAnchor(_ relation: LayoutRelation, constant c: CGFloat, priority p: LayoutPriority = .required, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
+        return layViews { (selectedView) -> EZConstraint in
             return selectedView.heightAnchor(relation, constant: c, priority: p, isActive)
         }
     }

@@ -26,57 +26,56 @@ public extension UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutBelow(_ view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+    func layBelow(_ view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
-        
         return EZConstraint.create(item: self, attribute: .top, relatedBy: relation, priority: p, toItem: view, attribute: .bottom, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutBelowFirstBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+    func layBelowFirstBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .top, relatedBy: relation, priority: p, toItem: view, attribute: .firstBaseline, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutBelowLastBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+    func layBelowLastBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .top, relatedBy: relation, priority: p, toItem: view, attribute: .lastBaseline, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutRight(to view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+    func layRight(to view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .leading, relatedBy: relation, priority: p, toItem: view, attribute: .trailing, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutAbove(_ view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+    func layAbove(_ view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .bottom, relatedBy: relation, priority: p, toItem: view, attribute: .top, multiplier: m, constant: -c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutAboveFirstBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+    func layAboveFirstBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .bottom, relatedBy: relation, priority: p, toItem: view, attribute: .firstBaseline, multiplier: m, constant: -c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutAboveLastBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+    func layAboveLastBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .bottom, relatedBy: relation, priority: p, toItem: view, attribute: .lastBaseline, multiplier: m, constant: -c, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutLeft(to view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
+    func layLeft(to view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .trailing, relatedBy: relation, priority: p, toItem: view, attribute: .leading, multiplier: m, constant: -c, isActive)
     }
@@ -85,82 +84,82 @@ public extension UIView {
 public extension Array where Element == UIView {
     
     @discardableResult
-    func layoutViews(_ layoutFunction: (_ currentView: UIView) -> EZConstraint) -> EZConstraints {
+    func layViews(_ layFunction: (_ currentView: UIView) -> EZConstraint) -> EZConstraints {
         var constraints = EZConstraints()
         forEach { (view) in
-            let constraint = layoutFunction(view)
+            let constraint = layFunction(view)
             constraints.append(constraint)
         }
         return constraints
     }
     
     @discardableResult
-    func layoutBelow(_ view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+    func layBelow(_ view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
-            return selectedView.layoutBelow(view, priority: p, relation, multiplier: m, constant: c, isActive)
+        return layViews { (selectedView) -> EZConstraint in
+            return selectedView.layBelow(view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
     
     @discardableResult
-    func layoutBelowFirstBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+    func layBelowFirstBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
 
-        return layoutViews { (selectedView) -> EZConstraint in
-            return selectedView.layoutBelowFirstBaseline(of: view, priority: p, relation, multiplier: m, constant: c, isActive)
+        return layViews { (selectedView) -> EZConstraint in
+            return selectedView.layBelowFirstBaseline(of: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutBelowLastBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+    func layBelowLastBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
 
-        return layoutViews { (selectedView) -> EZConstraint in
-            return selectedView.layoutBelowLastBaseline(of: view, priority: p, relation, multiplier: m, constant: c, isActive)
+        return layViews { (selectedView) -> EZConstraint in
+            return selectedView.layBelowLastBaseline(of: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutRight(to view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+    func layRight(to view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
     
-        return layoutViews { (selectedView) -> EZConstraint in
-            return selectedView.layoutRight(to: view, priority: p, relation, multiplier: m, constant: c, isActive)
+        return layViews { (selectedView) -> EZConstraint in
+            return selectedView.layRight(to: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutAbove(_ view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+    func layAbove(_ view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
 
-        return layoutViews { (selectedView) -> EZConstraint in
-            return selectedView.layoutAbove(view, priority: p, relation, multiplier: m, constant: c, isActive)
+        return layViews { (selectedView) -> EZConstraint in
+            return selectedView.layAbove(view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutAboveFirstBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+    func layAboveFirstBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
     
-        return layoutViews { (selectedView) -> EZConstraint in
-            return selectedView.layoutAboveFirstBaseline(of: view, priority: p, relation, multiplier: m, constant: c, isActive)
+        return layViews { (selectedView) -> EZConstraint in
+            return selectedView.layAboveFirstBaseline(of: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutAboveLastBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+    func layAboveLastBaseline(of view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
-            return selectedView.layoutAboveLastBaseline(of: view, priority: p, relation, multiplier: m, constant: c, isActive)
+        return layViews { (selectedView) -> EZConstraint in
+            return selectedView.layAboveLastBaseline(of: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func layoutLeft(to view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
+    func layLeft(to view: UIView, priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraints {
         
-        return layoutViews { (selectedView) -> EZConstraint in
-            return selectedView.layoutLeft(to: view, priority: p, relation, multiplier: m, constant: c, isActive)
+        return layViews { (selectedView) -> EZConstraint in
+            return selectedView.layLeft(to: view, priority: p, relation, multiplier: m, constant: c, isActive)
         }
     }
 }
