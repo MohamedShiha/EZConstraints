@@ -28,7 +28,7 @@ class EasyExampleViewController: UIViewController {
         segmentedControl.layoutTopInSuperView(constant: 200)
         
         [boxView, segmentedControl].centerHorizontally()
-        boxView.layoutBelow(segmentedControl, constant: 40)
+        boxView.layBelow(segmentedControl, constant: 40)
         boxView.squareSizeWith(sideLengthOf: 120)
         
         imageView.centerOrigin()

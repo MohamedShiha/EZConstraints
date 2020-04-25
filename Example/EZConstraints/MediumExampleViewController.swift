@@ -56,11 +56,11 @@ class MediumExampleViewController: UIViewController {
 
         constraint = logoLabel.layoutTopToSafeArea(constant: 24)
         
-        usernameTF.layoutBelow(logoLabel, constant: 40)
-        passwordTF.layoutBelow(usernameTF, constant: 16)
-        forgotPwButton.layoutBelow(passwordTF, constant: 8)
+        usernameTF.layBelow(logoLabel, constant: 40)
+        passwordTF.layBelow(usernameTF, constant: 16)
+        forgotPwButton.layBelow(passwordTF, constant: 8)
         forgotPwButton.alignLeft(with: passwordTF, constant: 8)
-        loginButton.layoutBelow(forgotPwButton, constant: 24)
+        loginButton.layBelow(forgotPwButton, constant: 24)
         [ usernameTF, passwordTF, loginButton ].heightAnchor(.equal, constant: 40)
     }
     
