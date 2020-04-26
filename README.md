@@ -86,12 +86,73 @@ view.center(offset: CGPoint(x:20, y:10))
 
 ## Usage
 
+### Filling the superview
+Filling the superview:
+```Swift
+view.edgesToSuperView()
+```
+You can also specify edges and insets:
+```Swift
+view.edgesToSuperView(including: [.left, .right], insets: .left(8) + .right(8))
+```
+EZConstraints also supports safe area insets using `edgesToSuperviewSafeArea(including:, insets:)`.
 
-## Author
-[Mohamed Shiha](https://github.com/MohamedShiha)
+### Laying out
+To lay out a view below another view:
+```Swift
+view.layBelow(view2, constant: 16)
+```
+You can also use `layAbove(_:)`, `layRight(to:)` and `layLeft(to:)`
+
+### Centering
+EZConstraints supports centering horizontally and vertically:
+```Swift
+view.centerHorizontally()
+view.centerVertically(constant: 16)
+```
+You can also center the view on the superview center:
+```Swift
+view.center()
+```
+
+
+### Sizing elements
+To assign a size constraints that consists of width and heighht constraints:
+```Swift
+view.sizeAnchor(CGSize(width: 30, height: 30))
+```
+Assigning a fixed width:
+```Swift
+view.widthAnchor(.equal, constant: 100)
+```
+You can also assign the size, height, width constraint(s) of another view to a a specified view:
+```Swift
+view.heightAnchor(with: view2)
+```
+You can also use `heightAnchor(with:)` and `widthAnchor(with:)` for the same purpose.
+`squareSizeWith(sideLengthOf:)` gives the view a square shape with a specified side length that is equal for all sides.
+
+Assigning aspect ratio constraint:
+```Swift
+view.widthToHeightRatio(multiplier: 1.5) // width = height * 1.5
+```
+
+### Debug Identifier
+The debug identifier is an id that is assigned automatically to every constraint upon creation. This identifier allows you to debug conflicting constraints by clearing the imbiguity and make it easier to know the reason of the problem.
+The identifier has a specified pattern:
+` id : <View1 Address>.Function_Name relation <View2 Address> * multiplier + constant(pt)
+
+Atttributes that will not appear in the identifier:
+- `<View2 Adress>`, If it is nil which is the case in 'widthAnchor(_:, constant:)' for example.
+- `multiplier`, If multiplier == 1.0.
+- `constant`, If constant == 0.
+- Other attributes like `priority`.
 
 ## License
 EZConstraints is released under the MIT license. [See LICENSE](https://github.com/MohamedShiha/EZConstraints/blob/master/LICENSE) for details.
+
+## Author
+[Mohamed Shiha](https://github.com/MohamedShiha)
 
 ## Contrtibutions
 If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/MohamedShiha/EZConstraints/issues/new).
