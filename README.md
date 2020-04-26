@@ -28,7 +28,7 @@ EZConstraints is an easier and more descriptive way to write auto layout constra
 - [X] Allows a view to obtain another view layout attributes like size, center, anchors.
 - [X] Assigns a layout constraint for a group of views with one call.
 - [X] No need to set 'translatesAutoresizingMaskIntoConstraints'.
-- [X] Better debugging experience with a meaningful indentifiers.
+- [X] Better debugging experience with a meaningful identifiers.
 
 ## Requirements
 - iOS 10.0+
@@ -52,7 +52,7 @@ pod 'EZConstraints'
 
 ### Filling the superview
 Filling the superview with `NSAutoLayout`:
-```
+```Swift
 view.translatesAutoresizingMaskIntoConstraints = false
 NSLayoutConstraint.activate([
     view.topAnchor.constraint(equalTo: superview.topAnchor, constant: 0),
@@ -62,13 +62,13 @@ NSLayoutConstraint.activate([
 ])
 ```
 With `EZConstraints`:
-```
+```Swift
 view.edgesToSuperView()
 ```
 
 ### Centering in superview
 Centering the view in the superview with `NSAutoLayout`:
-```
+```Swift
 view.translatesAutoresizingMaskIntoConstraints = false
 NSLayoutConstraint.activate([
     view.centerXAnchor.constraint(equalTo: superview.centerXAnchor),
@@ -76,11 +76,11 @@ NSLayoutConstraint.activate([
 ])
 ```
 With `EZConstraints`:
-```
+```Swift
 view.center()
 ```
 or:
-```
+```Swift
 view.center(offset: CGPoint(x:20, y:10))
 ```
 
@@ -93,5 +93,5 @@ view.center(offset: CGPoint(x:20, y:10))
 ## License
 EZConstraints is released under the MIT license. [See LICENSE](https://github.com/MohamedShiha/EZConstraints/blob/master/LICENSE) for details.
 
-## Contributions
+## Contrtibutions
 If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/MohamedShiha/EZConstraints/issues/new).
