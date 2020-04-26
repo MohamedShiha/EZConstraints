@@ -93,5 +93,5 @@ view.center(offset: CGPoint(x:20, y:10))
 ## License
 EZConstraints is released under the MIT license. [See LICENSE](https://github.com/MohamedShiha/EZConstraints/blob/master/LICENSE) for details.
 
-## Contrtibutions
+## Contributions
 If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/MohamedShiha/EZConstraints/issues/new).
