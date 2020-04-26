@@ -66,7 +66,7 @@ view.edgesToSuperView()
 ```
 
 ### Centering in superview
-Filling the superview with `NSAutoLayout`:
+Centering the view in the superview `NSAutoLayout`:
 ```
 view.translatesAutoresizingMaskIntoConstraints = false
 NSLayoutConstraint.activate([
