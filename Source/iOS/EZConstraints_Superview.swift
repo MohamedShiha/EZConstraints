@@ -135,7 +135,7 @@ public extension UIView {
     }
     
     @available(iOS 8.0, *)
-    func centerOrigin(translatedBy point: CGPoint = .zero) {
+    func center(offset point: CGPoint = .zero) {
         let superview = getSuperview()
         EZConstraint.create(item: self, attribute: .centerX, relatedBy: .equal, priority: .required, toItem: superview, attribute: .centerX, multiplier: 1, constant: point.x, true)
         EZConstraint.create(item: self, attribute: .centerY, relatedBy: .equal, priority: .required, toItem: superview, attribute: .centerY, multiplier: 1, constant: point.x, true)
@@ -256,9 +256,9 @@ public extension Array where Element == UIView {
     }
     
     @available(iOS 8.0, *)
-    func centerOrigin(translatedBy point: CGPoint = .zero) {
+    func center(offset point: CGPoint = .zero) {
         forEach { (view) in
-            view.centerOrigin(translatedBy: point)
+            view.center(offset: point)
         }
     }
 }
