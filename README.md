@@ -16,7 +16,7 @@ EZConstraints is an easier and more descriptive way to write auto layout constra
 - [Usage](#usage)
 - [Author](#author)
 - [License](#license)
-
+- [Contributions](#contributions)
 
 ## Features
 
@@ -88,9 +88,10 @@ view.center(offset: CGPoint(x:20, y:10))
 
 
 ## Author
-
 [Mohamed Shiha](https://github.com/MohamedShiha)
 
 ## License
-
 EZConstraints is released under the MIT license. [See LICENSE](https://github.com/MohamedShiha/EZConstraints/blob/master/LICENSE) for details.
+
+## Contrtibutions
+If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/MohamedShiha/EZConstraints/issues/new).
