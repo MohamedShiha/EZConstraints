@@ -1,4 +1,3 @@
-# EZConstraints
 <p align="center">
     <img src="Art/EZConstraints.png" width="890" alt="EZConstraintsConstraints"/>
 </p>
