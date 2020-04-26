@@ -138,7 +138,7 @@ public extension UIView {
     func center(offset point: CGPoint = .zero) {
         let superview = getSuperview()
         EZConstraint.create(item: self, attribute: .centerX, relatedBy: .equal, priority: .required, toItem: superview, attribute: .centerX, multiplier: 1, constant: point.x, true)
-        EZConstraint.create(item: self, attribute: .centerY, relatedBy: .equal, priority: .required, toItem: superview, attribute: .centerY, multiplier: 1, constant: point.x, true)
+        EZConstraint.create(item: self, attribute: .centerY, relatedBy: .equal, priority: .required, toItem: superview, attribute: .centerY, multiplier: 1, constant: point.y, true)
     }
     
      func getSuperview() -> UIView {
