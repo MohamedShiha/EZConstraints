@@ -31,7 +31,7 @@ class EasyExampleViewController: UIViewController {
         boxView.layBelow(segmentedControl, constant: 40)
         boxView.squareSizeWith(sideLengthOf: 120)
         
-        imageView.centerOrigin()
+        imageView.center()
         imageView.sizeAnchor(CGSize(width: 30, height: 30))
     }
     
