@@ -108,16 +108,15 @@ You can also use `layAbove(_:)`, `layRight(to:)` and `layLeft(to:)`
 EZConstraints supports centering horizontally and vertically:
 ```Swift
 view.centerHorizontally()
-view.centerVertically(constant: 16)
+view.centerVertically(yOffset: 16)
 ```
 You can also center the view on the superview center:
 ```Swift
 view.center()
 ```
 
-
 ### Sizing elements
-To assign a size constraints that consists of width and heighht constraints:
+To assign a size constraints that consists of width and height constraints:
 ```Swift
 view.sizeAnchor(CGSize(width: 30, height: 30))
 ```
@@ -138,14 +137,14 @@ view.widthToHeightRatio(multiplier: 1.5) // width = height * 1.5
 ```
 
 ### Debug Identifier
-The debug identifier is an id that is assigned automatically to every constraint upon creation. This identifier allows you to debug conflicting constraints by clearing the imbiguity and make it easier to know the reason of the problem.
+The debug identifier is an id that is assigned automatically to every constraint upon creation. This identifier allows you to debug conflicting constraints by clearing the ambiguity and make it easier to know the reason of the problem.
 The identifier has a specified pattern:
 ` id : <View1 Address>.Function_Name relation <View2 Address> * multiplier + constant(pt)`
 
-Atttributes that will not appear in the identifier:
-- `<View2 Adress>`, If it is nil which is the case in 'widthAnchor(_:, constant:)' for example.
-- `multiplier`, If multiplier == 1.0.
-- `constant`, If constant == 0.
+Attributes that will not appear in the identifier:
+- `<View2 Address>`, If it is `nil` which is the case in 'widthAnchor(_:, constant:)' for example.
+- `multiplier`, If `multiplier == 1.0`.
+- `constant`, If `constant == 0`.
 - Other attributes like `priority`.
 
 Examples:
@@ -159,5 +158,5 @@ EZConstraints is released under the MIT license. [See LICENSE](https://github.co
 ## Author
 [Mohamed Shiha](https://github.com/MohamedShiha)
 
-## Contrtibutions
+## Contributions
 If you have feature requests or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/MohamedShiha/EZConstraints/issues/new).
