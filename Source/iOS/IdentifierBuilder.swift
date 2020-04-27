@@ -71,7 +71,7 @@ public extension EZConstraint {
                     const = "+ \(constant)"
                 }
             } else {
-                const = "- \(fabs(constant))"
+                const = "- \(abs(constant))"
             }
         }
         
