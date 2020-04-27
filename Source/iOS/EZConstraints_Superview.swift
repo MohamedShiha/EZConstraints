@@ -122,16 +122,16 @@ public extension UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func centerHorizontally(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func centerHorizontally(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, xOffset x: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
-        return EZConstraint.create(item: self, attribute: .centerX, relatedBy: relation, priority: p, toItem: getSuperview(), attribute: .centerX, multiplier: m, constant: c, isActive)
+        return EZConstraint.create(item: self, attribute: .centerX, relatedBy: relation, priority: p, toItem: getSuperview(), attribute: .centerX, multiplier: m, constant: x, isActive)
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func centerVertically(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
+    func centerVertically(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, yOffset y: CGFloat = 0, _ isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
-        return EZConstraint.create(item: self, attribute: .centerY, relatedBy: relation, priority: p, toItem: getSuperview(), attribute: .centerY, multiplier: m, constant: c, isActive)
+        return EZConstraint.create(item: self, attribute: .centerY, relatedBy: relation, priority: p, toItem: getSuperview(), attribute: .centerY, multiplier: m, constant: y, isActive)
     }
     
     @available(iOS 8.0, *)
@@ -239,19 +239,19 @@ public extension Array where Element == UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func centerHorizontally(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+    func centerHorizontally(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, xOffset x: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
         
         return constraintViews { (view) -> EZConstraint in
-            return view.centerHorizontally(priority: p, relation, multiplier: m, constant: c, isActive)
+            return view.centerHorizontally(priority: p, relation, multiplier: m, xOffset: x, isActive)
         }
     }
     
     @available(iOS 8.0, *)
     @discardableResult
-    func centerVertically(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+    func centerVertically(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, yOffset y: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
         
         return constraintViews { (view) -> EZConstraint in
-            return view.centerVertically(priority: p, relation, multiplier: m, constant: c, isActive)
+            return view.centerVertically(priority: p, relation, multiplier: m, yOffset: y, isActive)
         }
     }
     

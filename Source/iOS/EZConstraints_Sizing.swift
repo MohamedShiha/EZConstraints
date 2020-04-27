@@ -47,11 +47,11 @@ public extension UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func sizeAnchor(with view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat = 0, _ isActive: Bool = true) -> EZConstraints {
+    func sizeAnchor(with view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, scale s: CGSize = .zero, _ isActive: Bool = true) -> EZConstraints {
         prepareForAutoLayout()
         return [
-            widthAnchor(with: view, priority: p, relation, multiplier: m, constant: c, isActive),
-            heightAnchor(with: view, priority: p, relation, multiplier: m, constant: c, isActive)
+            widthAnchor(with: view, priority: p, relation, multiplier: m, constant: s.width, isActive),
+            heightAnchor(with: view, priority: p, relation, multiplier: m, constant: s.height, isActive)
         ]
     }
     
@@ -106,6 +106,13 @@ public extension Array where Element == UIView {
     func sizeAnchor(_ size: CGSize) {
         forEach { (view) in
             view.sizeAnchor(size)
+        }
+    }
+    
+    @available(iOS 8.0, *)
+    func sizeAnchor(with view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, scale s: CGSize = .zero, _ isActive: Bool = true) {
+        forEach { (view) in
+            view.sizeAnchor(with: view, priority: p, relation, multiplier: m, scale: s, isActive)
         }
     }
     
