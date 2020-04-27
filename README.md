@@ -140,13 +140,18 @@ view.widthToHeightRatio(multiplier: 1.5) // width = height * 1.5
 ### Debug Identifier
 The debug identifier is an id that is assigned automatically to every constraint upon creation. This identifier allows you to debug conflicting constraints by clearing the imbiguity and make it easier to know the reason of the problem.
 The identifier has a specified pattern:
-` id : <View1 Address>.Function_Name relation <View2 Address> * multiplier + constant(pt)
+` id : <View1 Address>.Function_Name relation <View2 Address> * multiplier + constant(pt)`
 
 Atttributes that will not appear in the identifier:
 - `<View2 Adress>`, If it is nil which is the case in 'widthAnchor(_:, constant:)' for example.
 - `multiplier`, If multiplier == 1.0.
 - `constant`, If constant == 0.
 - Other attributes like `priority`.
+
+Examples:
+`id : 0x000000000000.layoutLeftInSuperView = 0x111111111111 + 24.0pt`
+`id : 0x000000000000.widthAnchor =  100.0pt'`
+
 
 ## License
 EZConstraints is released under the MIT license. [See LICENSE](https://github.com/MohamedShiha/EZConstraints/blob/master/LICENSE) for details.
