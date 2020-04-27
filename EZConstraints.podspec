@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   EZConstraints is an easier and more descriptive way to write auto layout constraints.
                        DESC
   s.homepage         = 'https://github.com/MohamedShiha/EZConstraints'
-  # s.screenshots     = '', ''
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Mohamed Shiha' => 'mohamedshiha15@gmail.com' }
   s.source           = { :git => 'https://github.com/MohamedShiha/EZConstraints.git', :tag => s.version.to_s }
@@ -16,5 +15,4 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   s.ios.source_files = 'Source/iOS/*.swift'
   s.ios.frameworks = 'UIKit'
-  # s.public_header_files = 'Pod/Classes/**/*.h'
 end
