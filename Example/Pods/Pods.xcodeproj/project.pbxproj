@@ -575,7 +575,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				MODULEMAP_FILE = "Target Support Files/EZConstraints/EZConstraints.modulemap";
 				PRODUCT_MODULE_NAME = EZConstraints;
 				PRODUCT_NAME = EZConstraints;
@@ -656,7 +656,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				MODULEMAP_FILE = "Target Support Files/EZConstraints/EZConstraints.modulemap";
 				PRODUCT_MODULE_NAME = EZConstraints;
 				PRODUCT_NAME = EZConstraints;
