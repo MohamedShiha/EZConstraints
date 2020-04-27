@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Art/EZConstraints.png" width="890" alt="EZConstraintsConstraints"/>
+    <img src="https://github.com/MohamedShiha/EZConstraints/blob/master/Art/EZConstraints.png" width="890" alt="EZConstraints"/>
 </p>
 
 [![Platform](https://img.shields.io/cocoapods/p/EZConstraints.svg?style=flat)](https://cocoapods.org/pods/EZConstraints)
