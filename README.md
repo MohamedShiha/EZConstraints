@@ -148,8 +148,8 @@ Attributes that will not appear in the identifier:
 - Other attributes like `priority`.
 
 Examples:
-`id : 0x000000000000.layoutLeftInSuperView = 0x111111111111 + 24.0pt`
-`id : 0x000000000000.widthAnchor =  100.0pt'`
+- `id : 0x000000000000.layoutLeftInSuperView = 0x111111111111 + 24.0pt`
+- `id : 0x000000000000.widthAnchor =  100.0pt'`
 
 
 ## License
