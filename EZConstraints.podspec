@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'EZConstraints'
-  s.version          = '1.1.1'
+  s.version          = '1.2'
   s.summary          = 'Auto Layout but a lot EZier.'
   s.description      = <<-DESC
   EZConstraints is an easier and more descriptive way to write auto layout constraints.
