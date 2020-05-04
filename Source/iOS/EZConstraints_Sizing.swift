@@ -26,9 +26,16 @@ public extension UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func widthToHeightRatio(priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat, constant c: CGFloat = 0, isActive: Bool = true) -> EZConstraint {
+    func aspectRatio(priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat, constant c: CGFloat = 0, isActive: Bool = true) -> EZConstraint {
         prepareForAutoLayout()
         return EZConstraint.create(item: self, attribute: .width, relatedBy: relation, priority: p, toItem: self, attribute: .height, multiplier: m, constant: c, isActive)
+    }
+    
+    @available(iOS 8.0, *)
+    @discardableResult
+    func aspectRatio(by view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat, constant c: CGFloat = 0, isActive: Bool = true) -> EZConstraint {
+        prepareForAutoLayout()
+        return EZConstraint.create(item: self, attribute: .width, relatedBy: relation, priority: p, toItem: view, attribute: .height, multiplier: m, constant: c, isActive)
     }
     
     @available(iOS 8.0, *)
@@ -88,10 +95,19 @@ public extension Array where Element == UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func widthToHeightRatio(to view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat, constant c: CGFloat = 0, isActive: Bool = true) -> EZConstraints {
+    func aspectRatio(to view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat, constant c: CGFloat = 0, isActive: Bool = true) -> EZConstraints {
         
         return constraintViews { (selectedView) -> EZConstraint in
-            return selectedView.widthToHeightRatio(priority: p, relation, multiplier: m, constant: c, isActive: isActive)
+            return selectedView.aspectRatio(priority: p, relation, multiplier: m, constant: c, isActive: isActive)
+        }
+    }
+    
+    @available(iOS 8.0, *)
+    @discardableResult
+    func aspectRatio(by view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat, constant c: CGFloat = 0, isActive: Bool = true) -> EZConstraints {
+        
+        return constraintViews { (selectedView) -> EZConstraint in
+            return selectedView.aspectRatio(by: view, priority: p, relation, multiplier: m, constant: c, isActive: isActive)
         }
     }
     
