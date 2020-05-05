@@ -82,14 +82,14 @@ public extension UIView {
     @discardableResult
     func layBottomToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         let insets = getSuperview().safeAreaInsets
-        return layBottomInSuperView(priority: p, relation, multiplier: m, constant: -c - insets.bottom, isActive)
+        return layBottomInSuperView(priority: p, relation, multiplier: m, constant: c + insets.bottom, isActive)
     }
     
     @available(iOS 11.0, *)
     @discardableResult
     func layRightToSafeArea(priority p: LayoutPriority = .required, _ relation: LayoutRelation = .equal, multiplier m: CGFloat = 1, constant c: CGFloat, _ isActive: Bool = true) -> EZConstraint {
         let insets = getSuperview().safeAreaInsets
-        return layRightInSuperView(priority: p, relation, multiplier: m, constant: -c - insets.right, isActive)
+        return layRightInSuperView(priority: p, relation, multiplier: m, constant: c + insets.right, isActive)
     }
     
     @available(iOS 8.0, *)
