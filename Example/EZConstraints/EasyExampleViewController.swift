@@ -25,7 +25,7 @@ class EasyExampleViewController: UIViewController {
         
         // This is how it looks like when using EZConstraints
         
-        segmentedControl.layoutTopInSuperView(constant: 200)
+        segmentedControl.layTopInSuperView(constant: 200)
         
         [boxView, segmentedControl].centerHorizontally()
         boxView.layBelow(segmentedControl, constant: 40)

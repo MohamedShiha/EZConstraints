@@ -54,7 +54,7 @@ class MediumExampleViewController: UIViewController {
         [ logoLabel, usernameTF, passwordTF,
           loginButton ].edgesToSuperView(including: [.left, .right], insets: .left(24) + .right(24))
 
-        constraint = logoLabel.layoutTopToSafeArea(constant: 24)
+        constraint = logoLabel.layTopToSafeArea(constant: 24)
         
         usernameTF.layBelow(logoLabel, constant: 40)
         passwordTF.layBelow(usernameTF, constant: 16)
