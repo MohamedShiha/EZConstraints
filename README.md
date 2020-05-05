@@ -97,12 +97,35 @@ view.edgesToSuperView(including: [.left, .right], insets: .left(8) + .right(8))
 ```
 EZConstraints also supports safe area insets using `edgesToSuperviewSafeArea(including:, insets:)`.
 
+### Laying out in superview
+
+To lay view(s) on top of the superview: 
+```Swift
+view.layTopInSuperView(constant: 20)
+```
+You can also use `layLeftInSuperView(constant:)`, `layBottomInSuperView(constant:)` and `layRightInSuperView(constant:)`.
+
 ### Laying out
-To lay out a view below another view:
+To lay a view below another view:
 ```Swift
 view.layBelow(view2, constant: 16)
 ```
-You can also use `layAbove(_:)`, `layRight(to:)` and `layLeft(to:)`
+You can also use `layAbove(_:)`, `layRight(to:)` and `layLeft(to:)`. <br/>
+
+EZConstraints also enables you to lay out views individual margins to safe area.
+```Swift
+view.layTopToSafeArea(constant: 16)
+```
+You can also use `layLeftToSafeArea(constant:)`, `layBottomToSafeArea(constant:)` and `layRightToSafeArea(constant:)`. <br/>
+
+Keep in mind that calling `edgesToSuperView` have the same effect as: 
+```Swift
+view.layTopInSuperView(constant: 0)
+view.layLeftInSuperView(constant: 0)
+view.layBottomInSuperView(constant: 0)
+view.layRightInSuperView(constant: 0)
+```
+The same applies to `edgesToSuperviewSafeArea`. 
 
 ### Centering
 EZConstraints supports centering horizontally and vertically:
@@ -133,7 +156,11 @@ You can also use `heightAnchor(with:)` and `widthAnchor(with:)` for the same pur
 
 Assigning aspect ratio constraint:
 ```Swift
-view.widthToHeightRatio(multiplier: 1.5) // width = height * 1.5
+view.aspectRatio(multiplier: 1.5) // width = height * 1.5
+```
+Assigning aspect ratio constraint between two views:
+```Swift
+view.aspectRatio(by: view2, multiplier: 0.5) // view.width = view2.height * 0.5
 ```
 
 ### Debug Identifier
@@ -147,7 +174,7 @@ Attributes that will not appear in the identifier:
 - `constant`, If `constant == 0`.
 - Other attributes like `priority`.
 
-Examples:
+#### Examples:
 - `id : 0x000000000000.layoutLeftInSuperView = 0x111111111111 + 24.0pt`
 - `id : 0x000000000000.widthAnchor =  100.0pt'`
 
