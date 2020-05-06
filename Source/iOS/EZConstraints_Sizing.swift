@@ -85,7 +85,7 @@ public extension UIView {
     }
 }
 
-public extension Array where Element == UIView {
+public extension Array where Element: UIView {
     
     @available(iOS 8.0, *)
     @discardableResult

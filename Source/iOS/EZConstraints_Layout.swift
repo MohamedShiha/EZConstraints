@@ -81,7 +81,7 @@ public extension UIView {
     }
 }
 
-public extension Array where Element == UIView {
+public extension Array where Element: UIView {
     
     @discardableResult
     func constrainViews(_ layFunction: (_ currentView: UIView) -> EZConstraint) -> EZConstraints {

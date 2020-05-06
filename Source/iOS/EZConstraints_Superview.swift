@@ -153,7 +153,7 @@ fileprivate func invalidSuperviewException(viewDebugInfo: String, _ isActive: Bo
     fatalError("Unable to activate constraint(s) because \(viewDebugInfo) has no superview in the view hierarchy.")
 }
 
-public extension Array where Element == UIView {
+public extension Array where Element: UIView {
     
     @available(iOS 8.0, *)
     func edgesToSuperView(including includedEdges: [LayoutEdge] = [.top, .left, .bottom, .right], insets: EZInsets = .zero) {
