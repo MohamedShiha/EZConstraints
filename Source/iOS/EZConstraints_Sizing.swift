@@ -89,7 +89,7 @@ public extension Array where Element: UIView {
     
     @available(iOS 8.0, *)
     @discardableResult
-    func aspectRatio(to view: UIView, priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat, constant c: CGFloat = 0, isActive: Bool = true) -> EZConstraints {
+    func aspectRatio(priority p: LayoutPriority = .required,_ relation: LayoutRelation = .equal, multiplier m: CGFloat, constant c: CGFloat = 0, isActive: Bool = true) -> EZConstraints {
         
         return constrainViews { (selectedView) -> EZConstraint in
             return selectedView.aspectRatio(priority: p, relation, multiplier: m, constant: c, isActive: isActive)
